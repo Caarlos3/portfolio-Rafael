@@ -1,25 +1,40 @@
 import React from 'react';
-import { ArrowRight, Code, Briefcase, User, Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { ArrowRight, Code, Briefcase, User, Mail, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function App() {
   const projects = [
     {
-      title: "Plataforma E-commerce",
-      description: "Desarrollada con React y FastAPI para una experiencia de usuario fluida y alto rendimiento.",
-      tech: ["React", "Python", "FastAPI"]
+      title: "Portfolio Personal",
+      description: "Gestión de cosas... ",
+      tech: ["Comprensión", "Análisis", "Dedicación"]
+    },
+    {
+      title: "Gestión",
+      description: "Breve descripción",
+      tech: ["Cosa", "Cosa", "Cosa"]
+    },
+    {
+      title: "Gestión",
+      description: "Breve descripción",
+      tech: ["Cosa", "Cosa", "Cosa"]
+    },
+    {
+      title: "Gestión",
+      description: "Breve descripción",
+      tech: ["Cosa", "Cosa", "Cosa"]
     }
-    // more projects can be added later
+
   ];
 
   return (
     <div className="app-container">
       <nav className="navbar fade-in">
-        <div className="logo">Rafael.dev</div>
+        <div className="logo">Ortiz Advisory </div>
         <ul className="nav-links">
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#experiencia">Experiencia</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#proyectos">Experience</a></li>
+          <li><a href="#experiencia">Education</a></li>
+          <li><a href="#contacto">Contact</a></li>
         </ul>
       </nav>
 
@@ -30,23 +45,26 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="hero-tagline">Hola, soy Rafael 👋</span>
-            <h1>Full Stack Developer <br /> Senior & Arquitecto</h1>
+            <div className="profile-container">
+              <img src="/assets/Rafa-Photo.jpeg" alt="Mr Ortiz" className="profile-img" />
+            </div>
+            <span className="project-card">Hi I'm Mr Ortiz </span>
+            <h1>Philosopher <br /> Gestor de cosas</h1>
             <p>
-              Especializado en la creación de soluciones digitales elegantes y eficientes utilizando las tecnologías más avanzadas del ecosistema de React y Python.
+              Especializado en la gestión ...
             </p>
             <a href="#proyectos" className="cta-button">
-              Ver proyectos <ArrowRight size={20} />
+              Ver algo... <ArrowRight size={20} />
             </a>
           </motion.div>
         </section>
 
         <section id="proyectos" className="section">
-          <h2 className="section-title">Proyectos Seleccionados</h2>
+          <h2 className="section-title">Exprience</h2>
           <div className="grid">
             {projects.map((p, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 className="project-card"
                 whileHover={{ scale: 1.02 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -61,14 +79,14 @@ function App() {
                 <p>{p.description}</p>
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                   {p.tech.map((t, idx) => (
-                     <span key={idx} style={{ 
-                       background: 'rgba(255,255,255,0.1)', 
-                       padding: '4px 10px', 
-                       borderRadius: '4px',
-                       fontSize: '0.8rem'
-                     }}>
-                       {t}
-                     </span>
+                    <span key={idx} style={{
+                      background: 'rgba(255,255,255,0.1)',
+                      padding: '4px 10px',
+                      borderRadius: '4px',
+                      fontSize: '0.8rem'
+                    }}>
+                      {t}
+                    </span>
                   ))}
                 </div>
               </motion.div>
@@ -76,14 +94,13 @@ function App() {
           </div>
         </section>
 
-        {/* Other sections like Experience and Contact could go here */}
+
       </main>
 
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Rafael Portfolio. Producido con pasión.</p>
+        <p>© {new Date().getFullYear()} Rafael Portfolio. </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
-          <Github size={20} style={{ cursor: 'pointer' }} />
-          <Linkedin size={20} style={{ cursor: 'pointer' }} />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ cursor: 'pointer' }}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           <Mail size={20} style={{ cursor: 'pointer' }} />
         </div>
       </footer>
