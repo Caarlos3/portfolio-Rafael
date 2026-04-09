@@ -65,24 +65,51 @@ function App() {
 
   const education = [
     {
-      title: "Grado en...",
-      description: "Gestión de cosas... ",
-      tech: ["Comprensión", "Análisis", "Dedicación"]
+      title: "Graduate in Philosophy",
+      description: "Universidad Complutense de Madrid - Sep. 2011 - Sep. 2016",
+      tech: ["In-depth knowledge of the history of philosophical thought.", 
+             "Development of critical and analytical skills for complex texts.", 
+             "Study of ethical, political, and social foundations.",
+             "Ability to formulate clear and coherent arguments.",
+             "Exploration of the relationship between thought, language, and reality.",
+             "Specialized in philosophy of language and logic, with a focus on human behavior based on language use."]
     },
     {
-      title: "Gestión",
-      description: "Breve descripción",
-      tech: ["Cosa", "Cosa", "Cosa"]
+      title: "Graduate in Hispanic Philology",
+      description: "Universidad Complutense de Madrid - Sep. 2011 - Jul. 2016",
+      tech: ["In-depth knowledge of Spanish language and literature, including analysis of classical and contemporary texts.", 
+             "Development of advanced skills in critical reading, interpretation, and textual analysis.", 
+             "Comparative study of literary movements and genres in world literature.",
+             "Ability to research, synthesize, and communicate literary ideas rigorously and coherently.",
+             "Application of theoretical methodologies for literary analysis in diverse cultural contexts.",
+             "Specialization in world literature, with an emphasis on comparative interpretation of texts and international literary trends."]
     },
     {
-      title: "Gestión",
-      description: "Breve descripción",
-      tech: ["Cosa", "Cosa", "Cosa"]
+      title: "Course in Behavioral Psychology",
+      description: "Universidad Complutense de Madrid - Feb. 2013 - Jul. 2013",
+      tech: ["Acquired knowledge of fundamental principles and theories of human behavior.", 
+             "Analyzed behavioral patterns and the factors influencing them in various contexts.", 
+             "Developed skills for observation, assessment, and intervention in specific behaviors.",
+             "Applied evidence-based techniques and strategies to modify or reinforce behaviors.",
+             "Understood the relationship between stimuli, responses, and learning processes in human behavior."]
     },
     {
-      title: "Gestión",
-      description: "Breve descripción",
-      tech: ["Cosa", "Cosa", "Cosa"]
+      title: "Course in psychology of addiction",
+      description: "Universidad de Zaragoza - Sep. 2018 - Mar. 2019 ",
+      tech: ["Acquired specialized knowledge of the psychological and behavioral mechanisms underlying addictions.", 
+             "Identified and analyzed risk factors, early warning signs, and behavioral patterns associated with dependency.", 
+             "Developed skills for assessing and monitoring patients with addictions, considering emotional and social aspects.",
+             "Applied evidence-based therapeutic strategies and intervention techniques for addiction prevention and treatment.",
+             "Gained a comprehensive understanding of the impact of addiction on behavior, family, and social environments, promoting a humanized and ethical approach."]
+    },
+    {
+      title: "Master's Degree in Secondary Education and Guidance.",
+      description: "Universidad de Zaragoza - Sep. 2019 - Jul. 2020  ",
+      tech: ["Acquired advanced knowledge of educational theories and pedagogy applied to secondary teaching.", 
+             "Developed skills for planning, implementing, and evaluating educational programs.", 
+             "Trained in academic and personal guidance, providing comprehensive support to students.",
+             "Designed intervention strategies to enhance learning, motivation, and students’ emotional wellbeing.",
+             "Applied educational management techniques and collaborated with teaching teams and families to promote an inclusive and effective school environment."]
     }
   ]
 
