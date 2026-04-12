@@ -137,24 +137,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <nav className="navbar fade-in">
-        <div className="logo">Ortiz Advisory </div>
-        <ul className="nav-links">
-          <li>
-            <a href="#experience">Experience</a>
-          </li>
-          <li>
-            <a href="#education">Education</a>
-          </li>
-          <li>
-            <a href="#prestacion">Prestaciones</a>
-          </li>
-          <li>
-            <a href="#contacto">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
+      
       <main>
         <section className="hero">
           <motion.div
@@ -171,14 +154,15 @@ function App() {
             </div>
             <span className="project-card">Hi I'm Mr Ortiz </span>
             <h1 style={{ marginTop: "20px" }}>
-              Philosopher <br /> Gestor de cosas
+              Ortiz Advisory
             </h1>
-            <p>Especializado en la gestión ...</p>
+            <p>Knowledge that does not lead to action is useless. <br/>- Plato</p>
+            
             <a href="#prestacion-psico" className="cta-button">
-              Ayuda Psicológica <ArrowRight size={20} />
+              Ayuda Psicológica
             </a>
             <a href="#prestacion-bar" className="cta-button">
-              Asesoramiento laboral <ArrowRight size={20} />
+              Asesoramiento laboral 
             </a>
           </motion.div>
         </section>
@@ -265,7 +249,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Rafael Ortiz Larios Portfolio.</p>
+        <p>© {new Date().getFullYear()} Rafael Ortiz Larios Philosopher</p>
         <div
           style={{
             display: "flex",
