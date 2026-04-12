@@ -1,8 +1,11 @@
-import React from "react";
-import { ArrowRight, Code, Download, Mail } from "lucide-react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { ArrowRight, Code, Download, Mail, X, ChevronDown, ChevronUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeAccordion, setActiveAccordion] = useState(null);
+
   const experience = [
     {
       title: "Barkeeper Chief - Strozzi's",
@@ -28,7 +31,7 @@ function App() {
     },
     {
       title:
-        "Professor of Piloshophy, Philology and Literature - Instituto Hipócrates. Centro de desintoxicación Zaragoza",
+        "Professor of Piloshophy, Philology and Literature - Instituto Hipócrates. Zaragoza",
       description: "Sep. 2022 - Jul. 2023",
       tech: [
         "Patient Assessment and Intake – Conduct initial evaluations to identify the physical, psychological, and social needs of patients entering the program.",
@@ -52,7 +55,7 @@ function App() {
     },
     {
       title:
-        "Professor of Piloshophy, Philology and Literature - Centro de Adaptación Cultural y Social Manzanares",
+        "Professor of Piloshophy, Philology and Literature - Centro Manzanares",
       description: "Feb. 2017 - Ago. 2018",
       tech: [
         "Cultural and Social Integration Programs – Organize and deliver workshops and activities to help individuals adapt to local customs, language, and social norms.",
@@ -78,217 +81,221 @@ function App() {
   const education = [
     {
       title: "Graduate in Philosophy",
-      description: "Universidad Complutense de Madrid - Sep. 2011 - Sep. 2016",
+      description: "Universidad Complutense de Madrid - 2011 - 2016",
       tech: [
         "In-depth knowledge of the history of philosophical thought.",
         "Development of critical and analytical skills for complex texts.",
         "Study of ethical, political, and social foundations.",
         "Ability to formulate clear and coherent arguments.",
-        "Exploration of the relationship between thought, language, and reality.",
-        "Specialized in philosophy of language and logic, with a focus on human behavior based on language use.",
+        "Specialized in philosophy of language and logic.",
       ],
     },
     {
       title: "Graduate in Hispanic Philology",
-      description: "Universidad Complutense de Madrid - Sep. 2011 - Jul. 2016",
+      description: "Universidad Complutense de Madrid - 2011 - 2016",
       tech: [
-        "In-depth knowledge of Spanish language and literature, including analysis of classical and contemporary texts.",
-        "Development of advanced skills in critical reading, interpretation, and textual analysis.",
-        "Comparative study of literary movements and genres in world literature.",
-        "Ability to research, synthesize, and communicate literary ideas rigorously and coherently.",
-        "Application of theoretical methodologies for literary analysis in diverse cultural contexts.",
-        "Specialization in world literature, with an emphasis on comparative interpretation of texts and international literary trends.",
+        "In-depth knowledge of Spanish language and literature.",
+        "Advanced skills in critical reading and textual analysis.",
+        "Comparative study of literary movements.",
+        "Specialization in world literature and comparative interpretation.",
       ],
     },
     {
       title: "Course in Behavioral Psychology",
-      description: "Universidad Complutense de Madrid - Feb. 2013 - Jul. 2013",
+      description: "Universidad Complutense de Madrid - 2013",
       tech: [
-        "Acquired knowledge of fundamental principles and theories of human behavior.",
-        "Analyzed behavioral patterns and the factors influencing them in various contexts.",
-        "Developed skills for observation, assessment, and intervention in specific behaviors.",
-        "Applied evidence-based techniques and strategies to modify or reinforce behaviors.",
-        "Understood the relationship between stimuli, responses, and learning processes in human behavior.",
+        "Knowledge of fundamental principles of human behavior.",
+        "Analyzed behavioral patterns and influencing factors.",
+        "Skills for observation, assessment, and intervention.",
       ],
     },
     {
       title: "Course in psychology of addiction",
-      description: "Universidad de Zaragoza - Sep. 2018 - Mar. 2019 ",
+      description: "Universidad de Zaragoza - 2018 - 2019",
       tech: [
-        "Acquired specialized knowledge of the psychological and behavioral mechanisms underlying addictions.",
-        "Identified and analyzed risk factors, early warning signs, and behavioral patterns associated with dependency.",
-        "Developed skills for assessing and monitoring patients with addictions, considering emotional and social aspects.",
-        "Applied evidence-based therapeutic strategies and intervention techniques for addiction prevention and treatment.",
-        "Gained a comprehensive understanding of the impact of addiction on behavior, family, and social environments, promoting a humanized and ethical approach.",
+        "Specialized knowledge of psychological mechanisms of addictions.",
+        "Identified and analyzed risk factors and patterns.",
+        "Applied evidence-based therapeutic strategies.",
       ],
     },
     {
-      title: "Master's Degree in Secondary Education and Guidance.",
-      description: "Universidad de Zaragoza - Sep. 2019 - Jul. 2020  ",
+      title: "Master's Degree in Education and Guidance",
+      description: "Universidad de Zaragoza - 2019 - 2020",
       tech: [
-        "Acquired advanced knowledge of educational theories and pedagogy applied to secondary teaching.",
-        "Developed skills for planning, implementing, and evaluating educational programs.",
-        "Trained in academic and personal guidance, providing comprehensive support to students.",
-        "Designed intervention strategies to enhance learning, motivation, and students’ emotional wellbeing.",
-        "Applied educational management techniques and collaborated with teaching teams and families to promote an inclusive and effective school environment.",
+        "Advanced knowledge of pedagogy applied to secondary teaching.",
+        "Developed skills for educational programs and guidance.",
+        "Designed intervention strategies for learning improvement.",
       ],
     },
   ];
 
+  const toggleAccordion = (index) => {
+    setActiveAccordion(activeAccordion === index ? null : index);
+  };
+
+  const CollapsibleItem = ({ item, index, sectionId }) => {
+    const isOpen = activeAccordion === `${sectionId}-${index}`;
+    return (
+      <div className="collapsible-item">
+        <div 
+          className="collapsible-header" 
+          onClick={() => toggleAccordion(`${sectionId}-${index}`)}
+        >
+          <div>
+            <h3>{item.title}</h3>
+            <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.7 }}>{item.description}</p>
+          </div>
+          {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        </div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="collapsible-content"
+            >
+              <ul className="tech-list">
+                {item.tech.map((t, idx) => (
+                  <li key={idx}>{t}</li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  };
+
   return (
     <div className="app-container">
-      
-      <main>
-        <section className="hero">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="profile-container">
-              <img
-                src="/assets/Rafa-Photo.jpeg"
-                alt="Mr Ortiz"
-                className="profile-img"
-              />
-            </div>
-            <span className="project-card">Hi I'm Mr Ortiz </span>
-            <h1 style={{ marginTop: "20px" }}>
-              Ortiz Advisory
-            </h1>
-            <p>Knowledge that does not lead to action is useless. <br/>- Plato</p>
-            
-            <a href="#prestacion-psico" className="cta-button">
-              Ayuda Psicológica
-            </a>
-            <a href="#prestacion-bar" className="cta-button">
-              Asesoramiento laboral 
-            </a>
-          </motion.div>
-        </section>
+      {/* Hero Banner with background image */}
+      <section className="hero">
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="profile-container">
+            <img
+              src="/assets/Rafa-Photo.jpeg"
+              alt="Rafael Ortiz"
+              className="profile-img"
+            />
+          </div>
+          <h1 style={{ fontSize: '3.5rem', marginBottom: '10px' }}>Ortiz Advisory</h1>
+          <p style={{ fontSize: '1.2rem', fontStyle: 'italic', marginBottom: '30px' }}>
+            "Knowledge that does not lead to action is useless." <br/>— Plato
+          </p>
+          <button className="cta-button" onClick={() => setIsModalOpen(true)}>
+            About Me
+          </button>
+        </motion.div>
+      </section>
 
-        <section id="experience" className="section">
-          <h2 className="section-title">Exprience</h2>
-          <div className="grid">
-            {experience.map((p, i) => (
-              <motion.div
-                key={i}
-                className="project-card"
-                whileHover={{ scale: 1.02 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div
-                  style={{ marginBottom: "1rem", color: "var(--text-color)" }}
-                >
-                  <Code size={24} />
-                </div>
-                <h3>{p.title}</h3>
-                <p>{p.description}</p>
-                <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                  {p.tech.map((t, idx) => (
-                    <span
-                      key={idx}
-                      style={{
-                        background: "rgba(255,255,255,0.1)",
-                        padding: "4px 10px",
-                        borderRadius: "4px",
-                        fontSize: "0.8rem",
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+      {/* Sticky Navigation */}
+      <nav className="sticky-nav">
+        <a href="#experience" className="nav-btn">Experience</a>
+        <a href="#education" className="nav-btn">Education</a>
+        <a href="#psicologica" className="nav-btn">Ayuda Psicológica</a>
+        <a href="#laboral" className="nav-btn">Asesoramiento Laboral</a>
+      </nav>
+
+      {/* Sections */}
+      <main>
+        {/* Experience Banner (Grey) */}
+        <section id="experience" className="banner-grey">
+          <h2 className="section-title">Experience</h2>
+          <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+            {experience.map((item, i) => (
+              <CollapsibleItem key={i} item={item} index={i} sectionId="exp" />
             ))}
           </div>
         </section>
 
-        <section id="education" className="section">
+        {/* Education Banner (Grey) */}
+        <section id="education" className="banner-grey" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
           <h2 className="section-title">Education</h2>
-          <div className="grid">
-            {education.map((p, i) => (
-              <motion.div
-                key={i}
-                className="project-card"
-                whileHover={{ scale: 1.02 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div
-                  style={{ marginBottom: "1rem", color: "var(--text-color)" }}
-                >
-                  <Code size={24} />
-                </div>
-                <h3>{p.title}</h3>
-                <p>{p.description}</p>
-                <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                  {p.tech.map((t, idx) => (
-                    <span
-                      key={idx}
-                      style={{
-                        background: "rgba(255,255,255,0.1)",
-                        padding: "4px 10px",
-                        borderRadius: "4px",
-                        fontSize: "0.8rem",
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+          <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+            {education.map((item, i) => (
+              <CollapsibleItem key={i} item={item} index={i} sectionId="edu" />
             ))}
+          </div>
+        </section>
+
+        {/* Placeholder: Ayuda Psicológica (Now Grey) */}
+        <section id="psicologica" className="banner-grey" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+          <h2 className="section-title">Ayuda Psicológica</h2>
+          <div className="collapsible-item" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', background: '#fff' }}>
+             <div className="collapsible-header" style={{ justifyContent: 'center' }}>
+                <p>Sección en desarrollo. Próximamente ofreceremos servicios de apoyo psicológico especializado.</p>
+             </div>
+          </div>
+        </section>
+
+        {/* Placeholder: Asesoramiento Laboral (Now Grey) */}
+        <section id="laboral" className="banner-grey" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+          <h2 className="section-title">Asesoramiento Laboral</h2>
+          <div className="collapsible-item" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', background: '#fff' }}>
+             <div className="collapsible-header" style={{ justifyContent: 'center' }}>
+                <p>Sección en desarrollo. Próximamente ofreceremos servicios de asesoramiento y orientación laboral.</p>
+             </div>
           </div>
         </section>
       </main>
 
-      <footer className="footer">
-        <p>© {new Date().getFullYear()} Rafael Ortiz Larios Philosopher</p>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "1rem",
-            marginTop: "1rem",
-          }}
-        >
-          <a
-            href="https://www.linkedin.com/in/rafael-ortiz-larios-a83947398/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "inherit" }}
+      {/* About Me Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div 
+            className="modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsModalOpen(false)}
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{ cursor: "pointer" }}
+            <motion.div 
+              className="modal-content"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect width="4" height="12" x="2" y="9"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
+              <button className="close-modal" onClick={() => setIsModalOpen(false)}>
+                <X size={24} />
+              </button>
+              <h2>About Me</h2>
+              <div style={{ marginTop: '1.5rem', lineHeight: '1.8' }}>
+                <p>
+                  Welcome to Ortiz Advisory. I am Rafael Ortiz, a professional dedicated to philosophical inquiry, 
+                  psychological understanding, and educational excellence.
+                </p>
+                <p style={{ marginTop: '1rem' }}>
+                  With a background in Philosophy, Philology, and Behavioral Psychology, I bridge the gap 
+                  between theoretical knowledge and practical action. My mission is to provide meaningful 
+                  guidance in both personal and professional spheres.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <footer className="footer" style={{ background: 'var(--bg-color)', color: 'var(--text-secondary)' }}>
+        <p>© {new Date().getFullYear()} Rafael Ortiz Larios - Ortiz Advisory</p>
+        <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", marginTop: "1.5rem" }}>
+          <a href="https://www.linkedin.com/in/rafael-ortiz-larios-a83947398/" target="_blank" rel="noopener noreferrer" className="nav-btn" style={{ padding: '8px' }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
             </svg>
           </a>
-          <a href="mailto:info@ortizadvisory.ch" style={{ color: "inherit" }}>
-            <Mail size={20} style={{ cursor: "pointer" }} />
+          <a href="mailto:info@ortizadvisory.ch" className="nav-btn" style={{ padding: '8px' }}>
+            <Mail size={20} />
           </a>
-          <a
-            href="/Lebenslauf. Rf.pdf"
-            download="Lebenslauf. Rf.pdf"
-            style={{ color: "inherit" }}
-          >
-            <Download size={20} style={{ cursor: "pointer" }} />
+          <a href="/Lebenslauf. Rf.pdf" download className="nav-btn" style={{ padding: '8px' }}>
+            <Download size={20} />
           </a>
         </div>
       </footer>
