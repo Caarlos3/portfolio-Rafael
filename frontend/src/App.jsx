@@ -137,8 +137,8 @@ function App() {
     const isOpen = activeAccordion === `${sectionId}-${index}`;
     return (
       <div className="collapsible-item">
-        <div 
-          className="collapsible-header" 
+        <div
+          className="collapsible-header"
           onClick={() => toggleAccordion(`${sectionId}-${index}`)}
         >
           <div>
@@ -187,7 +187,7 @@ function App() {
           </div>
           <h1 style={{ fontSize: '3.5rem', marginBottom: '10px' }}>Ortiz Advisory</h1>
           <p style={{ fontSize: '1.2rem', fontStyle: 'italic', marginBottom: '30px' }}>
-            "Knowledge that does not lead to action is useless." <br/>— Plato
+            "Knowledge that does not lead to action is useless." <br />— Plato
           </p>
           <button className="cta-button" onClick={() => setIsModalOpen(true)}>
             About Me
@@ -199,8 +199,8 @@ function App() {
       <nav className="sticky-nav">
         <a href="#experience" className="nav-btn">Experience</a>
         <a href="#education" className="nav-btn">Education</a>
-        <a href="#psicologica" className="nav-btn">Ayuda Psicológica</a>
-        <a href="#laboral" className="nav-btn">Asesoramiento Laboral</a>
+        <a href="#personal-advisory" className="nav-btn">Personal Advisory</a>
+        <a href="#gastronomy-advisory" className="nav-btn">Gastronomy Advisory</a>
       </nav>
 
       {/* Sections */}
@@ -225,22 +225,58 @@ function App() {
           </div>
         </section>
 
-        {/* Placeholder: Ayuda Psicológica (Now Grey) */}
-        <section id="psicologica" className="banner-grey" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-          <h2 className="section-title">Ayuda Psicológica</h2>
-          <div className="collapsible-item" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', background: '#fff' }}>
-             <div className="collapsible-header" style={{ justifyContent: 'center' }}>
-                <p>Sección en desarrollo. Próximamente ofreceremos servicios de apoyo psicológico especializado.</p>
+        {/* Personal Advisory Section (Grey) */}
+        <section id="personal-advisory" className="banner-grey" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+          <h2 className="section-title">Personal Advisory</h2>
+          <div className="collapsible-item" style={{ maxWidth: '800px', margin: '0 auto', background: '#f9fafb', padding: '2.5rem' }}>
+             <h3 style={{ borderBottom: '1px solid #ddd', paddingBottom: '0.5rem', marginBottom: '1.5rem', color: '#333' }}>Clarity — Structure — Direction</h3>
+             <div style={{ lineHeight: '1.8', color: '#444' }}>
+                <p>There are situations where things stop being clear. Not because there are no options, but because everything appears at the same level: ideas, pressure, expectations, and noise. The issue is not a lack of answers, but the inability to distinguish what is relevant.</p>
+                <p style={{ marginTop: '1rem' }}>This work focuses on creating clarity before any action takes place. Through direct and structured sessions, the process is built around understanding the context, identifying what actually matters, and organizing decisions in a way that can be sustained over time.</p>
+                <p style={{ marginTop: '1rem' }}>Each situation is approached individually, without templates or predefined solutions. The objective is not to provide answers in advance, but to establish a framework where decisions can be made with precision.</p>
+                
+                <h4 style={{ marginTop: '2rem', marginBottom: '1rem', color: '#222' }}>Scope of work includes:</h4>
+                <ul className="tech-list" style={{ color: '#444' }}>
+                  <li>Contextual analysis of the situation</li>
+                  <li>Identification of structural issues and misalignment</li>
+                  <li>Decision-making structuring</li>
+                  <li>Clarification of direction and next steps</li>
+                </ul>
+
+                <h4 style={{ marginTop: '2rem', marginBottom: '0.5rem', color: '#222' }}>Outcome:</h4>
+                <p>Clarity where there is confusion.<br/>Structure where there is dispersion.<br/>A direction that can be followed and applied.</p>
+                
+                <p style={{ marginTop: '2rem', fontStyle: 'italic', borderLeft: '3px solid var(--accent-blue)', paddingLeft: '1rem', color: 'var(--text-secondary)' }}>
+                  Not everything needs to be solved. But everything needs to be understood.
+                </p>
              </div>
           </div>
         </section>
 
-        {/* Placeholder: Asesoramiento Laboral (Now Grey) */}
-        <section id="laboral" className="banner-grey" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-          <h2 className="section-title">Asesoramiento Laboral</h2>
-          <div className="collapsible-item" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', background: '#fff' }}>
-             <div className="collapsible-header" style={{ justifyContent: 'center' }}>
-                <p>Sección en desarrollo. Próximamente ofreceremos servicios de asesoramiento y orientación laboral.</p>
+        {/* Gastronomy Advisory Section (Grey) */}
+        <section id="gastronomy-advisory" className="banner-grey" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+          <h2 className="section-title">Gastronomy Advisory</h2>
+          <div className="collapsible-item" style={{ maxWidth: '800px', margin: '0 auto', background: '#f9fafb', padding: '2.5rem' }}>
+             <h3 style={{ borderBottom: '1px solid #ddd', paddingBottom: '0.75rem', marginBottom: '1.5rem', color: '#111', fontWeight: '700', letterSpacing: '0.5px' }}>Operations — Structure — Execution</h3>
+             <div style={{ lineHeight: '1.8', color: '#444' }}>
+                <p>The gastronomy sector exposes problems in real time. There is no delay between decision and consequence, no margin to hide inefficiency, and no space for confusion during service. What is often perceived as a team issue or lack of organization is usually structural: unclear roles, broken communication, or decisions taken without context.</p>
+                <p style={{ marginTop: '1rem' }}>This work focuses on understanding how the operation actually functions under pressure. Through on-site observation and direct analysis, the process identifies where operations break, how teams behave in real conditions, and why certain issues repeat over time. From there, structure is introduced to align roles, decision-making, and operational flow.</p>
+                <p style={{ marginTop: '1rem' }}>The objective is not to impose systems, but to establish coherence within the existing structure.</p>
+                
+                <h4 style={{ marginTop: '2rem', marginBottom: '1rem', color: '#222', fontWeight: '600' }}>Scope of work includes:</h4>
+                <ul className="tech-list" style={{ color: '#444' }}>
+                  <li>Observation of real service dynamics</li>
+                  <li>Analysis of team behavior and coordination</li>
+                  <li>Identification of operational friction points</li>
+                  <li>Structuring roles, communication, and decision flow</li>
+                </ul>
+
+                <h4 style={{ marginTop: '2rem', marginBottom: '0.5rem', color: '#222', fontWeight: '600' }}>Outcome:</h4>
+                <p>Operational clarity.<br/>Improved flow during service.<br/>Reduced friction within the team.<br/>Decisions that hold under pressure.</p>
+                
+                <p style={{ marginTop: '2rem', fontStyle: 'italic', borderLeft: '3px solid var(--accent-blue)', paddingLeft: '1rem', color: 'var(--text-secondary)' }}>
+                  In gastronomy, problems are not solved in theory. They are resolved in service.
+                </p>
              </div>
           </div>
         </section>
@@ -249,14 +285,14 @@ function App() {
       {/* About Me Modal */}
       <AnimatePresence>
         {isModalOpen && (
-          <motion.div 
+          <motion.div
             className="modal-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsModalOpen(false)}
           >
-            <motion.div 
+            <motion.div
               className="modal-content"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -269,13 +305,13 @@ function App() {
               <h2>About Me</h2>
               <div style={{ marginTop: '1.5rem', lineHeight: '1.8' }}>
                 <p>
-                  Welcome to Ortiz Advisory. I am Rafael Ortiz, a professional dedicated to philosophical inquiry, 
-                  psychological understanding, and educational excellence.
+                  Welcome to Ortiz Advisory. I am Rafael Ortiz Larios.
                 </p>
                 <p style={{ marginTop: '1rem' }}>
-                  With a background in Philosophy, Philology, and Behavioral Psychology, I bridge the gap 
-                  between theoretical knowledge and practical action. My mission is to provide meaningful 
-                  guidance in both personal and professional spheres.
+                  Dedicated and highly responsible professional with extensive training in behavioral and addiction psychology. Skilled in providing emotional
+                  and psychological support to students and patients, ensuring human-centered care. Known for discipline, punctuality, organization, and
+                  respect, which guarantee consistent, high-quality performance. Adept at adapting to new challenges and fostering positive interpersonal
+                  relationships. Committed to excellence in both educational and clinical environments
                 </p>
               </div>
             </motion.div>
@@ -288,7 +324,7 @@ function App() {
         <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", marginTop: "1.5rem" }}>
           <a href="https://www.linkedin.com/in/rafael-ortiz-larios-a83947398/" target="_blank" rel="noopener noreferrer" className="nav-btn" style={{ padding: '8px' }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
             </svg>
           </a>
           <a href="mailto:info@ortizadvisory.ch" className="nav-btn" style={{ padding: '8px' }}>
