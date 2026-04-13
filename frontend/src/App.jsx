@@ -195,6 +195,12 @@ function App() {
             About Me
           </button>
         </motion.div>
+        
+        {/* Advisory Logos */}
+        <div className="hero-logos">
+          <img src="/logo-advisory.png" alt="Advisory Logo" className="hero-logo" />
+          <img src="/logo-advisory2.png" alt="Advisory Logo 2" className="hero-logo" />
+        </div>
       </section>
 
       {/* Sticky Navigation */}
@@ -231,27 +237,27 @@ function App() {
         <section id="personal-advisory" className="banner-grey" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
           <h2 className="section-title">Personal Advisory</h2>
           <div className="collapsible-item" style={{ maxWidth: '800px', margin: '0 auto', background: '#f9fafb', padding: '2.5rem' }}>
-             <h3 style={{ borderBottom: '1px solid #ddd', paddingBottom: '0.5rem', marginBottom: '1.5rem', color: '#333' }}>Clarity — Structure — Direction</h3>
-             <div style={{ lineHeight: '1.8', color: '#444' }}>
-                <p>There are situations where things stop being clear. Not because there are no options, but because everything appears at the same level: ideas, pressure, expectations, and noise. The issue is not a lack of answers, but the inability to distinguish what is relevant.</p>
-                <p style={{ marginTop: '1rem' }}>This work focuses on creating clarity before any action takes place. Through direct and structured sessions, the process is built around understanding the context, identifying what actually matters, and organizing decisions in a way that can be sustained over time.</p>
-                <p style={{ marginTop: '1rem' }}>Each situation is approached individually, without templates or predefined solutions. The objective is not to provide answers in advance, but to establish a framework where decisions can be made with precision.</p>
-                
-                <h4 style={{ marginTop: '2rem', marginBottom: '1rem', color: '#222' }}>Scope of work includes:</h4>
-                <ul className="tech-list" style={{ color: '#444' }}>
-                  <li>Contextual analysis of the situation</li>
-                  <li>Identification of structural issues and misalignment</li>
-                  <li>Decision-making structuring</li>
-                  <li>Clarification of direction and next steps</li>
-                </ul>
+            <h3 style={{ borderBottom: '1px solid #ddd', paddingBottom: '0.5rem', marginBottom: '1.5rem', color: '#333' }}>Clarity — Structure — Direction</h3>
+            <div style={{ lineHeight: '1.8', color: '#444' }}>
+              <p>There are situations where things stop being clear. Not because there are no options, but because everything appears at the same level: ideas, pressure, expectations, and noise. The issue is not a lack of answers, but the inability to distinguish what is relevant.</p>
+              <p style={{ marginTop: '1rem' }}>This work focuses on creating clarity before any action takes place. Through direct and structured sessions, the process is built around understanding the context, identifying what actually matters, and organizing decisions in a way that can be sustained over time.</p>
+              <p style={{ marginTop: '1rem' }}>Each situation is approached individually, without templates or predefined solutions. The objective is not to provide answers in advance, but to establish a framework where decisions can be made with precision.</p>
 
-                <h4 style={{ marginTop: '2rem', marginBottom: '0.5rem', color: '#222' }}>Outcome:</h4>
-                <p>Clarity where there is confusion.<br/>Structure where there is dispersion.<br/>A direction that can be followed and applied.</p>
-                
-                <p style={{ marginTop: '2rem', fontStyle: 'italic', borderLeft: '3px solid var(--accent-blue)', paddingLeft: '1rem', color: 'var(--text-secondary)' }}>
-                  Not everything needs to be solved. But everything needs to be understood.
-                </p>
-             </div>
+              <h4 style={{ marginTop: '2rem', marginBottom: '1rem', color: '#222' }}>Scope of work includes:</h4>
+              <ul className="tech-list" style={{ color: '#444' }}>
+                <li>Contextual analysis of the situation</li>
+                <li>Identification of structural issues and misalignment</li>
+                <li>Decision-making structuring</li>
+                <li>Clarification of direction and next steps</li>
+              </ul>
+
+              <h4 style={{ marginTop: '2rem', marginBottom: '0.5rem', color: '#222' }}>Outcome:</h4>
+              <p>Clarity where there is confusion.<br />Structure where there is dispersion.<br />A direction that can be followed and applied.</p>
+
+              <p style={{ marginTop: '2rem', fontStyle: 'italic', borderLeft: '3px solid var(--accent-blue)', paddingLeft: '1rem', color: 'var(--text-secondary)' }}>
+                Not everything needs to be solved. But everything needs to be understood.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -259,27 +265,27 @@ function App() {
         <section id="gastronomy-advisory" className="banner-grey" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
           <h2 className="section-title">Gastronomy Advisory</h2>
           <div className="collapsible-item" style={{ maxWidth: '800px', margin: '0 auto', background: '#f9fafb', padding: '2.5rem' }}>
-             <h3 style={{ borderBottom: '1px solid #ddd', paddingBottom: '0.75rem', marginBottom: '1.5rem', color: '#111', fontWeight: '700', letterSpacing: '0.5px' }}>Operations — Structure — Execution</h3>
-             <div style={{ lineHeight: '1.8', color: '#444' }}>
-                <p>The gastronomy sector exposes problems in real time. There is no delay between decision and consequence, no margin to hide inefficiency, and no space for confusion during service. What is often perceived as a team issue or lack of organization is usually structural: unclear roles, broken communication, or decisions taken without context.</p>
-                <p style={{ marginTop: '1rem' }}>This work focuses on understanding how the operation actually functions under pressure. Through on-site observation and direct analysis, the process identifies where operations break, how teams behave in real conditions, and why certain issues repeat over time. From there, structure is introduced to align roles, decision-making, and operational flow.</p>
-                <p style={{ marginTop: '1rem' }}>The objective is not to impose systems, but to establish coherence within the existing structure.</p>
-                
-                <h4 style={{ marginTop: '2rem', marginBottom: '1rem', color: '#222', fontWeight: '600' }}>Scope of work includes:</h4>
-                <ul className="tech-list" style={{ color: '#444' }}>
-                  <li>Observation of real service dynamics</li>
-                  <li>Analysis of team behavior and coordination</li>
-                  <li>Identification of operational friction points</li>
-                  <li>Structuring roles, communication, and decision flow</li>
-                </ul>
+            <h3 style={{ borderBottom: '1px solid #ddd', paddingBottom: '0.75rem', marginBottom: '1.5rem', color: '#111', fontWeight: '700', letterSpacing: '0.5px' }}>Operations — Structure — Execution</h3>
+            <div style={{ lineHeight: '1.8', color: '#444' }}>
+              <p>The gastronomy sector exposes problems in real time. There is no delay between decision and consequence, no margin to hide inefficiency, and no space for confusion during service. What is often perceived as a team issue or lack of organization is usually structural: unclear roles, broken communication, or decisions taken without context.</p>
+              <p style={{ marginTop: '1rem' }}>This work focuses on understanding how the operation actually functions under pressure. Through on-site observation and direct analysis, the process identifies where operations break, how teams behave in real conditions, and why certain issues repeat over time. From there, structure is introduced to align roles, decision-making, and operational flow.</p>
+              <p style={{ marginTop: '1rem' }}>The objective is not to impose systems, but to establish coherence within the existing structure.</p>
 
-                <h4 style={{ marginTop: '2rem', marginBottom: '0.5rem', color: '#222', fontWeight: '600' }}>Outcome:</h4>
-                <p>Operational clarity.<br/>Improved flow during service.<br/>Reduced friction within the team.<br/>Decisions that hold under pressure.</p>
-                
-                <p style={{ marginTop: '2rem', fontStyle: 'italic', borderLeft: '3px solid var(--accent-blue)', paddingLeft: '1rem', color: 'var(--text-secondary)' }}>
-                  In gastronomy, problems are not solved in theory. They are resolved in service.
-                </p>
-             </div>
+              <h4 style={{ marginTop: '2rem', marginBottom: '1rem', color: '#222', fontWeight: '600' }}>Scope of work includes:</h4>
+              <ul className="tech-list" style={{ color: '#444' }}>
+                <li>Observation of real service dynamics</li>
+                <li>Analysis of team behavior and coordination</li>
+                <li>Identification of operational friction points</li>
+                <li>Structuring roles, communication, and decision flow</li>
+              </ul>
+
+              <h4 style={{ marginTop: '2rem', marginBottom: '0.5rem', color: '#222', fontWeight: '600' }}>Outcome:</h4>
+              <p>Operational clarity.<br />Improved flow during service.<br />Reduced friction within the team.<br />Decisions that hold under pressure.</p>
+
+              <p style={{ marginTop: '2rem', fontStyle: 'italic', borderLeft: '3px solid var(--accent-blue)', paddingLeft: '1rem', color: 'var(--text-secondary)' }}>
+                In gastronomy, problems are not solved in theory. They are resolved in service.
+              </p>
+            </div>
           </div>
         </section>
       </main>
