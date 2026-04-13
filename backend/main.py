@@ -39,7 +39,7 @@ def chat_rafa(request: ChatRequest):
         logger.info(f"Rafa chatbot request | session: {request.session_id}")
 
         engine = WorkflowEngine.load_from_json(
-            "workflow_rafa.json",
+            "workflow_chatbot_rafa.json",
             session_manager=session_manager
         )
 

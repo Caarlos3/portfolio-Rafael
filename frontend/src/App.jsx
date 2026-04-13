@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { ArrowRight, Code, Download, Mail, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Chatbot from "./Chatbot";
+
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(null);
@@ -335,6 +337,7 @@ function App() {
           </a>
         </div>
       </footer>
+      <Chatbot />
     </div>
   );
 }
