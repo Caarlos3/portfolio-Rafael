@@ -1,38 +1,62 @@
-from fastapi import FastAPI
+import logging
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
+from pydantic import BaseModel
+
+from engine import WorkflowEngine
+from session_manager import SessionManager
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI(title="Rafael Portfolio API")
 
-# Add CORS to allow frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, restrict this.
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+session_manager = SessionManager()
+
+class ChatRequest(BaseModel):
+    input_data: str
+    session_id: str | None = None
+
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Rafael Portfolio API", "status": "online"}
+    return {
+        "message": "Welcome to Rafael Portfolio API",
+        "status": "online"
+    }
 
-@app.get("/api/projects")
-async def get_projects():
-    # Example projects from the backend
-    return [
-        {
-            "id": 1,
-            "title": "Arquitectura Backend Microservicios",
-            "description": "Un sistema escalable diseñado con Python y Kafka.",
-            "tech": ["Python", "FastAPI", "Kafka", "PostgreSQL"]
-        },
-        {
-            "id": 2,
-            "title": "Machine Learning Dashboard",
-            "description": "Visualización y análisis predictivo en tiempo real.",
-            "tech": ["Python", "Scikit-Learn", "React"]
-        }
-    ]
+@app.post("/chat/rafa")
+def chat_rafa(request: ChatRequest):
+    try:
+        logger.info(f"Rafa chatbot request | session: {request.session_id}")
+
+        engine = WorkflowEngine.load_from_json(
+            "workflow_rafa.json",
+            session_manager=session_manager
+        )
+
+        stream = engine.run(
+            request.input_data,
+            session_id=request.session_id
+        )
+
+        def event_stream():
+            for chunk in stream:
+                yield chunk
+
+        return StreamingResponse(event_stream(), media_type="text/plain")
+
+    except Exception as e:
+        logger.error(f"Error in Rafa chatbot: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
